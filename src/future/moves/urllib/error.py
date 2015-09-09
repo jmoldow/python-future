@@ -3,6 +3,8 @@ from future.standard_library import suspend_hooks
 
 from future.utils import PY3
 
+# REVIEW: urllib, urllib2 combined into urllib in Python 3, with error classes
+# in urllib.error.
 if PY3:
     from urllib.error import *
 else:

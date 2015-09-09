@@ -35,6 +35,8 @@ if PY3:
 else:
     __future_module__ = True
     with suspend_hooks():
+        # REVIEW: Various request functions from urllib, urllib2, urlparse
+        # moved to urllib.request in Python 3, and toBytes renamed to to_bytes.
         from urllib import *
         from urllib2 import *
         from urlparse import *

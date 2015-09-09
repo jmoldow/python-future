@@ -2,6 +2,7 @@ from __future__ import absolute_import
 from future.utils import PY3
 __future_module__ = True
 
+# REVIEW: Backported html package from Python 3.
 if PY3:
     from html import *
 else:

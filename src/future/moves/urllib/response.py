@@ -1,6 +1,8 @@
 from future import standard_library
 from future.utils import PY3
 
+# REVIEW: Various response methods moved from urllib to urllib.response in
+# Python 3.
 if PY3:
     from urllib.response import *
 else:

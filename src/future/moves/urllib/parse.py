@@ -3,6 +3,8 @@ from future.standard_library import suspend_hooks
 
 from future.utils import PY3
 
+# REVIEW: urllib parse methods, and urlparse package, moved into urllib.parse
+# in Python 3.
 if PY3:
     from urllib.parse import *
 else:
