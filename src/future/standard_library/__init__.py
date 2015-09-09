@@ -69,6 +69,9 @@ import types
 import copy
 import os
 
+# REVIEW: This file is a mess. A lot of things in here that seem to not be used
+# anymore.
+
 # Make a dedicated logger; leave the root logger to be configured
 # by the application.
 flog = logging.getLogger('future_stdlib')
@@ -412,6 +415,8 @@ class suspend_hooks(object):
     If the hooks were disabled before the context, they are not installed when
     the context is left.
     """
+    # REVIEW: Remove, reinstate hooks for moved modules, so that the old
+    # modules with the same name can temporarily be accessed.
     def __enter__(self):
         self.hooks_were_installed = detect_hooks()
         remove_hooks()
@@ -447,6 +452,7 @@ def install_aliases():
         return
     # if hasattr(install_aliases, 'run_already'):
     #     return
+    # REVIEW: Move definitions from old modules to new.
     for (newmodname, newobjname, oldmodname, oldobjname) in MOVES:
         __import__(newmodname)
         # We look up the module in sys.modules because __import__ just returns the
@@ -461,6 +467,7 @@ def install_aliases():
         setattr(newmod, newobjname, obj)
 
     # Hack for urllib so it appears to have the same structure on Py2 as on Py3
+    # REVIEW: Manually move some more complicated modules.
     import urllib
     from future.backports.urllib import request
     from future.backports.urllib import response
@@ -534,6 +541,9 @@ def install_hooks():
     # Add it unless it's there already
     newhook = RenameImport(RENAMES)
     if not detect_hooks():
+        # REVIEW:
+        # <https://docs.python.org/2/library/sys.html#sys.meta_path>
+        # <https://www.python.org/dev/peps/pep-0302/>
         sys.meta_path.append(newhook)
     flog.debug('sys.meta_path is now: {0}'.format(sys.meta_path))
 
@@ -802,6 +812,8 @@ TOP_LEVEL_MODULES = ['builtins',
                      '_thread',
                     ]
 
+# REVIEW: On Python 3, make sure to import the real top-level modules, not the
+# ones in future/src/, even if future/src is in sys.path.
 def import_top_level_modules():
     with exclude_local_folder_imports(*TOP_LEVEL_MODULES):
         for m in TOP_LEVEL_MODULES:
