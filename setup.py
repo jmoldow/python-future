@@ -19,6 +19,7 @@ if sys.argv[-1] == 'publish':
 
 
 NAME = "future"
+# REVIEW: Packages don't contain "src." prefix.
 PACKAGES = ["future",
             "future.builtins",
             "future.types",
@@ -56,6 +57,8 @@ PACKAGES = ["future",
 
 # PEP 3108 stdlib moves:
 if sys.version_info[:2] < (3, 0):
+    # REVIEW: Packages don't contain "src." prefix. These are the names of
+    # modules in Python 3 that need to be backported to Python 2.
     PACKAGES += [
             "builtins",
             "configparser",
@@ -85,6 +88,9 @@ PACKAGE_DATA = {'': [
                 'tests': ['*.py'],
                 }
 
+# REVIEW: No dependencies. They borrowed code, backports from other projects,
+# and put it into this project, with attribution. All MIT / Apache / BSD
+# licensed.
 REQUIRES = []
 TEST_REQUIRES = []
 if sys.version_info[:2] == (2, 6):
@@ -172,6 +178,7 @@ setup(name=NAME,
               'pasteurize = libpasteurize.main:main'
           ]
       },
+      # REVIEW: So that packages don't have to contain "src." prefix.
       package_dir={'': 'src'},
       packages=PACKAGES,
       package_data=PACKAGE_DATA,
