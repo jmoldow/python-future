@@ -85,6 +85,7 @@ f = urllib.request.urlopen('http://www.python.org/')
 # abstract factory for opener
 
 from __future__ import absolute_import, division, print_function, unicode_literals
+# REVIEW: Uses future.builtins and raise_with_traceback
 from future.builtins import bytes, dict, filter, input, int, map, open, str
 from future.utils import PY2, PY3, raise_with_traceback
 

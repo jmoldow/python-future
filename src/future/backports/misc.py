@@ -1,3 +1,4 @@
+#REVIEW:
 """
 Miscellaneous function (re)definitions from the Py3.4+ standard library
 for Python 2.6/2.7.

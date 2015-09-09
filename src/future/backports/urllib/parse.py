@@ -30,6 +30,7 @@ parsing quirks from older RFCs are retained. The testcases in
 test_urlparse.py provides a good indicator of parsing behavior.
 """
 from __future__ import absolute_import, division, unicode_literals
+# REVIEW: Uses future.builtins and raise_with_traceback
 from future.builtins import bytes, chr, dict, int, range, str
 from future.utils import raise_with_traceback
 
