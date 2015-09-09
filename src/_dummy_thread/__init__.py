@@ -2,6 +2,7 @@ from __future__ import absolute_import
 import sys
 __future_module__ = True
 
+# REVIEW: dummy_thread renamed to _dummy_thread in Python 3.
 if sys.version_info[0] < 3:
     from dummy_thread import *
 else:

@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 import sys
 
+# repr renamed to reprlib in Python 3.
 if sys.version_info[0] < 3:
     from repr import *
 else:

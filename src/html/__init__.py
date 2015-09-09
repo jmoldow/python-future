@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 import sys
 
+# REVIEW: Backported html package from Python 3.
 if sys.version_info[0] < 3:
     from future.moves.html import *
 else:

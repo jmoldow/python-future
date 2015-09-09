@@ -3,6 +3,7 @@ import sys
 
 assert sys.version_info[0] < 3
 
+# REVIEW: Various http servers moved to http.server in Python 3.
 from BaseHTTPServer import *
 from CGIHTTPServer import *
 from SimpleHTTPServer import *

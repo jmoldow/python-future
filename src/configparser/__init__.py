@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 import sys
 
+# REVIEW: Renamed from ConfigParser to configparser in Python 3.
 if sys.version_info[0] < 3:
     from ConfigParser import *
     try:

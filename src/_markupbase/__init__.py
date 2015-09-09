@@ -2,6 +2,7 @@ from __future__ import absolute_import
 import sys
 __future_module__ = True
 
+# REVIEW: markupbase renamed to _markupbase in Python 3.
 if sys.version_info[0] < 3:
     from markupbase import *
 else:

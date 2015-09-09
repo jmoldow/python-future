@@ -2,6 +2,7 @@ from __future__ import absolute_import
 import sys
 __future_module__ = True
 
+# REVIEW: _winreg renamed to winreg in Python 3.
 if sys.version_info[0] < 3:
     from _winreg import *
 else:

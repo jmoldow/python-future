@@ -3,6 +3,7 @@ import sys
 
 assert sys.version_info[0] < 3
 
+# REVIEW: httplib renamed to http.client in Python 3.
 from httplib import *
 from httplib import HTTPMessage
 

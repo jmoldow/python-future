@@ -2,6 +2,7 @@ from __future__ import absolute_import
 import sys
 __future_module__ = True
 
+# REVIEW: Renamed from __builtin__ to builtins in Python 3.
 if sys.version_info[0] < 3:
     from __builtin__ import *
     # Overwrite any old definitions with the equivalent future.builtins ones:
