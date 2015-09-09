@@ -366,6 +366,7 @@ class CodeHandler(unittest.TestCase):
         return output
 
 
+# REVIEW: Test utilities for tests of cross-version code.
 # Decorator to skip some tests on Python 2.6 ...
 skip26 = unittest.skipIf(PY26, "this test is known to fail on Py2.6")
 
@@ -409,6 +410,7 @@ def assertRegex(self, text, expected_regex, msg=None):
         msg = '%s: %r not found in %r' % (msg, expected_regex.pattern, text)
         raise self.failureException(msg)
 
+# REVIEW: Patches unittest with backported methods.
 if not hasattr(unittest.TestCase, 'assertRegex'):
     bind_method(unittest.TestCase, 'assertRegex', assertRegex)
 
@@ -526,5 +528,6 @@ def assertWarns(self, expected_warning, callable_obj=None, *args, **kwargs):
     context = _AssertWarnsContext(expected_warning, self, callable_obj)
     return context.handle('assertWarns', callable_obj, args, kwargs)
 
+# REVIEW: Patches unittest with backported methods.
 if not hasattr(unittest.TestCase, 'assertWarns'):
     bind_method(unittest.TestCase, 'assertWarns', assertWarns)
