@@ -42,6 +42,7 @@ _builtin_super = super
 
 _SENTINEL = object()
 
+# REVIEW: Pure-python backport of Python 3's magic super().
 def newsuper(typ=_SENTINEL, type_or_obj=_SENTINEL, framedepth=1):
     '''Like builtin super(), but capable of magic.
 

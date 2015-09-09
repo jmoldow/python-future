@@ -53,6 +53,8 @@ def newnext(iterator, default=_SENTINEL):
     #     args.append(default)
     try:
         try:
+            # REVIEW: Look for both Python 3's __next__(), and Python 2's
+            # next().
             return iterator.__next__()
         except AttributeError:
             try:

@@ -9,6 +9,7 @@ from future.utils import PYPY, PY26, bind_method
 from decimal import Decimal, ROUND_HALF_EVEN
 
 
+# REVIEW: Pure-python backport of function that is written in C in Python 3.
 def newround(number, ndigits=None):
     """
     See Python 3 documentation: uses Banker's Rounding.

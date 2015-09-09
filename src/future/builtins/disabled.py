@@ -40,6 +40,7 @@ from __future__ import division, absolute_import, print_function
 from future import utils
 
 
+# REVIEW: Disable obsolete functions, so they aren't accidentally used.
 OBSOLETE_BUILTINS = ['apply', 'chr', 'cmp', 'coerce', 'execfile', 'file',
                      'input', 'long', 'raw_input', 'reduce', 'reload',
                      'unicode', 'xrange', 'StandardError']

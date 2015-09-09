@@ -38,6 +38,8 @@ import itertools
 from future import utils
 
 if not utils.PY3:
+    # REVIEW: Grab generators, from itertools, for the builtins module. Use
+    # Python 3-backported range.
     filter = itertools.ifilter
     map = itertools.imap
     from future.types import newrange as range

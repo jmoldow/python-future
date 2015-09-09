@@ -7,6 +7,7 @@ See the docs `here <http://python-future.org/what-else.html>`_
 
 """
 
+# REVIEW: Bring all backported / enhanced builtins into the global scope.
 from future.builtins.iterators import (filter, map, zip)
 # The isinstance import is no longer needed. We provide it only for
 # backward-compatibility with future v0.8.2. It will be removed in future v1.0.
@@ -25,6 +26,7 @@ if PY3:
     str = builtins.str
     __all__ = []
 else:
+    # REVIEW: Bring all enhanced types into the global scope.
     from future.types import (newbytes as bytes,
                               newdict as dict,
                               newint as int,
