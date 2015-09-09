@@ -1,3 +1,4 @@
+# REVIEW: Just read this.
 """
 This module contains backports the data types that were significantly changed
 in the transition from Python 2 to Python 3.
@@ -97,6 +98,7 @@ from future import utils
 
 # Some utility functions to enforce strict type-separation of unicode str and
 # bytes:
+# REVIEW: Utility decorator for disallowing input types that would otherwise be allowed.
 def disallow_types(argnums, disallowed_types):
     """
     A decorator that raises a TypeError if any of the given numbered

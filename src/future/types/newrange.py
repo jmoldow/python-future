@@ -26,6 +26,8 @@ from future.backports.misc import count   # with step parameter on Py2.6
 from future.backports.misc import _count
 
 
+# REVIEW: Creates new range type, rather than using xrange. There must be
+# differences between the two.
 class newrange(Sequence):
     """
     Pure-Python backport of Python 3's range object.  See `the CPython

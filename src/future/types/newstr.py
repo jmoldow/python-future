@@ -53,6 +53,7 @@ if PY3:
     unicode = str
 
 
+# REVIEW: metaclass to override isinstance().
 class BaseNewStr(type):
     def __instancecheck__(cls, instance):
         if cls == newstr:
@@ -127,8 +128,10 @@ class newstr(with_metaclass(BaseNewStr, unicode)):
             newkey = newstr(key)
         else:
             raise TypeError(errmsg.format(type(key)))
+        # REVIEW: Why not super?
         return issubset(list(newkey), list(self))
     
+    # REVIEW: Don't allow adding str and bytes, as per Python 3.
     @no('newbytes')
     def __add__(self, other):
         return newstr(super(newstr, self).__add__(other))
@@ -141,12 +144,15 @@ class newstr(with_metaclass(BaseNewStr, unicode)):
         except:
             return NotImplemented
 
+    # REVIEW: All of the object's APIs are overriden to return the new type,
+    # instead of the old.
     def __mul__(self, other):
         return newstr(super(newstr, self).__mul__(other))
 
     def __rmul__(self, other):
         return newstr(super(newstr, self).__rmul__(other))
 
+    # REVIEW: Don't allow joining to bytes.
     def join(self, iterable):
         errmsg = 'sequence item {0}: expected unicode string, found bytes'
         for i, item in enumerate(iterable):

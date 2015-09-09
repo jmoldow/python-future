@@ -38,6 +38,7 @@ class newdict(with_metaclass(BaseNewDict, _builtin_dict)):
     """
     A backport of the Python 3 dict object to Py2
     """
+    # REVIEW: Override items(), keys(), values() so they have their Python 3 semantics.
     def items(self):
         """
         On Python 2.7+:
@@ -78,6 +79,7 @@ class newdict(with_metaclass(BaseNewDict, _builtin_dict)):
         elif ver == (2, 6):
             return self.itervalues()
         elif ver >= (3, 0):
+            # REVIEW: Infinite loop? Yes, but this class isn't imported on Python 3.
             return self.values()
 
     def __new__(cls, *args, **kwargs):
@@ -93,6 +95,7 @@ class newdict(with_metaclass(BaseNewDict, _builtin_dict)):
             in the keyword argument list.  For example:  dict(one=1, two=2)
         """
 
+        # REVIEW: This is not a bug. The kwargs are used by __init__, not __new__.
         if len(args) == 0:
             return super(newdict, cls).__new__(cls)
         elif type(args[0]) == newdict:

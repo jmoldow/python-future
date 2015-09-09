@@ -7,6 +7,8 @@ completeness may be a better default. TODO: compare these
 
 _builtin_open = open
 
+# REVIEW: In Python 2, open() is lacking the important encoding parameter.
+# Can also use io.open(), codecs.open().
 class newopen(object):
     """Wrapper providing key part of Python 3 open() interface.
 
