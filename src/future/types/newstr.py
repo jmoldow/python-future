@@ -155,6 +155,7 @@ class newstr(with_metaclass(BaseNewStr, unicode)):
     # REVIEW: Don't allow joining to bytes.
     def join(self, iterable):
         errmsg = 'sequence item {0}: expected unicode string, found bytes'
+        # REVIEW: Uses up iterable.
         for i, item in enumerate(iterable):
             # Here we use type() rather than isinstance() because
             # __instancecheck__ is being overridden. E.g.
